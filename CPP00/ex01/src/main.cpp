@@ -6,7 +6,7 @@
 /*   By: lscarcel <lscarcel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 14:28:47 by lscarcel          #+#    #+#             */
-/*   Updated: 2024/09/11 16:58:09 by lscarcel         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:20:08 by lscarcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,32 @@ void PhoneBook::printPhoneBook()
 	std::cout << std::setw(40) << "---------------------------------------------" << std::endl;
 }
 
+int isalnum(std::string input)
+{
+	int i = input.size();
+	while(isalnum(input[i]) != 0)
+	{
+		i++;
+		if(isalnum(input[i]) == 1)
+			return (1);
+	}
+	return (0);
+}
 void PhoneBook::search()
 {
 	printPhoneBook();
 	
-	// demander quel contact imprimer (par exemple 6)
+	std::cout << "entrez un numéro entre 0 et 7 pour imprimer un contact ou toute autre touche pour revenir au menu précédent" << std::endl;
+	std::string input;
+	if (std::cin.fail())
+		return;
+	if (isalnum(input) == 0)
+		printContact()
+	// index = input[0] - '0'; méthode flora, utiliser isdigit et 
+	
 	// imprimer le contact -> printContact(index I);
 }
+
 
 int main (int ac, char **av)
 {
