@@ -6,7 +6,7 @@
 /*   By: lscarcel <lscarcel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 14:28:47 by lscarcel          #+#    #+#             */
-/*   Updated: 2024/09/11 17:20:08 by lscarcel         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:43:53 by lscarcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,113 +14,16 @@
 #include "./PhoneBook.hpp"
 #include <iostream>
 
-void	get_input(std::string &input)
-{
-	std::getline(std::cin, input);
-	if (std::cin.fail())
-			return ;
-	while (input.empty())
-	{
-		std::cout << "cant be empty" << std::endl;
-		std::getline(std::cin, input);
-		if (std::cin.fail())
-			return ;
-	}
+inline void printUsage() {
+	std::cout 	<< "Use" << BOLD BLUE 
+				<< " ADD" << RESET 
+				<< ", " << RESET BOLD GREEN 
+				<< "SEARCH " << RESET 
+				<< "or " << BOLD RED 
+				<< "EXIT" << RESET 
+				<< "."
+	<< std::endl;
 }
-void PhoneBook::add() {
-    if (_currentIndex >= 8)
-        _currentIndex = 0;
-
-    std::string input;
-
-    std::cout << "Enter first name: ";
-    get_input(input);
-    contacts[_currentIndex].setFirstName(input);
-
-    std::cout << "Enter last name: ";
-    get_input(input);
-    contacts[_currentIndex].setLastName(input);
-
-    std::cout << "Enter nickname: ";
-    get_input(input);
-    contacts[_currentIndex].setNickname(input);
-
-    std::cout << "Enter phone number: ";
-    get_input(input);
-    contacts[_currentIndex].setPhoneNumber(input);
-
-    std::cout << "Enter darkest secret: ";
-    get_input(input);
-    contacts[_currentIndex].setDarkestSecret(input);
-
-    std::cout << "Contact added at index " << _currentIndex << "." << std::endl;
-
-    _currentIndex++;
-}
-
-void PhoneBook::printContact(int index)
-{
-	std::string tmp;
-	std::cout  << "|" << std::setw(10) << std::right << index << "|";
-	
-	tmp = contacts[index].getFirstName();
-		if(tmp.size() > 9)
-			tmp = tmp.substr(0, 9) + '.';
-	std::cout << std::setw(10) << std::right << tmp << "|";
-
-	tmp = contacts[index].getLastName();
-		if(tmp.size() > 9)
-			tmp = tmp.substr(0, 9) + '.';
-	std::cout << std::setw(10) << std::right << tmp << "|";
-
-	tmp = contacts[index].getNickname();
-		if(tmp.size() > 9)
-			tmp = tmp.substr(0, 9) + '.';
-	std::cout << std::setw(10) << std::right << tmp << "|" << std::endl;
-}
-
-void PhoneBook::printPhoneBook()
-{
-	std::cout << std::setw(40) << "---------------------------------------------" << std::endl << "|";
-	std::cout << std::setw(10) << std::right << "index" << "|";
-	std::cout << std::setw(10) << std::right << "first name" << "|";
-	std::cout << std::setw(10) << std::right << "last name" << "|";
-	std::cout << std::setw(10) << std::right << "nickname" << "|" << std::endl;
-	std::cout << std::setw(40) << "---------------------------------------------" << std::endl;
-
-	for(int i = 0; i <= 7; i++)
-	{
-		printContact(i);
-	}
-	std::cout << std::setw(40) << "---------------------------------------------" << std::endl;
-}
-
-int isalnum(std::string input)
-{
-	int i = input.size();
-	while(isalnum(input[i]) != 0)
-	{
-		i++;
-		if(isalnum(input[i]) == 1)
-			return (1);
-	}
-	return (0);
-}
-void PhoneBook::search()
-{
-	printPhoneBook();
-	
-	std::cout << "entrez un numéro entre 0 et 7 pour imprimer un contact ou toute autre touche pour revenir au menu précédent" << std::endl;
-	std::string input;
-	if (std::cin.fail())
-		return;
-	if (isalnum(input) == 0)
-		printContact()
-	// index = input[0] - '0'; méthode flora, utiliser isdigit et 
-	
-	// imprimer le contact -> printContact(index I);
-}
-
 
 int main (int ac, char **av)
 {
@@ -128,22 +31,17 @@ int main (int ac, char **av)
 	PhoneBook repertoire;
 	if(ac == 1)
 	{	
-		std::cout << "Use ADD, SEARCH or EXIT." << std::endl;
 		while (1)
 		{
+			printUsage();
 			std::string input;
 			std::getline(std::cin, input);
 			if (std::cin.fail())
 				break;
 			if (input == "ADD" || input == "add")
-			{
 				repertoire.add();
-				std::cout << "Use ADD, SEARCH or EXIT." << std::endl;
-			}
 			else if (input == "SEARCH" || input == "search")
-			{
 				repertoire.search();
-			}
 			else if (input == "EXIT" || input == "exit")
 				break;
 		}
