@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lscarcel <lscarcel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 13:38:02 by lscarcel          #+#    #+#             */
-/*   Updated: 2024/09/13 12:31:16 by lscarcel         ###   ########.fr       */
+/*   Created: 2024/09/13 11:48:30 by lscarcel          #+#    #+#             */
+/*   Updated: 2024/09/13 12:31:23 by lscarcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@
 class Zombie {
 	private:
 	std::string name;
-
 	public:
-	Zombie();
-	~Zombie();
-	
+	Zombie();   //const
+	~Zombie();	//dest
+
 	//setter
 	void	setName(std::string newName);
 	

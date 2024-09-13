@@ -6,7 +6,7 @@
 /*   By: lscarcel <lscarcel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:29:44 by lscarcel          #+#    #+#             */
-/*   Updated: 2024/09/12 12:05:30 by lscarcel         ###   ########.fr       */
+/*   Updated: 2024/09/13 11:15:54 by lscarcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,8 @@ void PhoneBook::search()
 		getInput(input);
 		if (input == "return" || input == "RETURN")
 			break;
-		else if (!std::all_of(input.begin(), input.end(), isdigit) || input.empty())
-			continue;
+			else if (!std::all_of(input.begin(), input.end(), isdigit) || input.empty())
+				continue;
 		else
 		{
 			index = std::stoi(input);

@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lscarcel <lscarcel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 13:38:02 by lscarcel          #+#    #+#             */
-/*   Updated: 2024/09/13 12:31:16 by lscarcel         ###   ########.fr       */
+/*   Created: 2024/09/13 12:40:33 by lscarcel          #+#    #+#             */
+/*   Updated: 2024/09/13 14:07:00 by lscarcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #include <iostream>
 
-#define RESET "\033[0m"
-#define RED "\033[31m"
-#define GREEN "\033[32m"
-#define YELLOW "\033[33m"
-#define BLUE "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN "\033[36m"
-#define WHITE "\033[37m"
-#define BOLD "\033[1m"
+int main(void)
+{
+	std::string announce = "HI ,THIS IS BRAIN";
+	std::string *stringPTR = &announce;
+	std::string &stringREF = announce;
 
-class Zombie {
-	private:
-	std::string name;
+	std::cout << &announce << std::endl;
+	std::cout << &stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
 
-	public:
-	Zombie();
-	~Zombie();
-	
-	//setter
-	void	setName(std::string newName);
-	
-	//Methods
-	void	announce(void);
-};
+	std::cout << announce << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+}
