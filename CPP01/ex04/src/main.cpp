@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lscarcel <lscarcel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/13 14:09:04 by lscarcel          #+#    #+#             */
-/*   Updated: 2024/09/17 16:23:26 by lscarcel         ###   ########.fr       */
+/*   Created: 2024/09/17 16:40:50 by lscarcel          #+#    #+#             */
+/*   Updated: 2024/09/17 16:56:33 by lscarcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "noreplace.hpp"
 
-class HumanB {
-	private:
-	std::string _name;
-	Weapon* 	_weapon;
-
-	public:
-	HumanB(std::string name);
-	~HumanB();
-	
-	//method
-	void attack();
-
-	//setter
-	void setWeapon(Weapon& weapon);
-};
+int main (int ac, char **av) {
+	if (ac == 4)
+	{
+		
+	}
+	else
+	std::cout << " 'wrong buzzer noice' wrong argument !";
+}
