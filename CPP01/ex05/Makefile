@@ -2,8 +2,8 @@ CFLAGS = -std=c++98 -Wall -Werror -Wextra -g
 CC = c++
 RM = rm -rf 
 SRC_DIR = ./src/
-SRC = $(SRC_DIR)main.cpp
-NAME = a.out
+SRC = $(SRC_DIR)main.cpp $(SRC_DIR)Harl.cpp
+NAME = Harl
 
 all : $(NAME)
 
